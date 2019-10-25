@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { AddLanchePage } from './add-lanche.page';
 
+import { Camera } from '@ionic-native/camera/ngx'
+
 const routes: Routes = [
   {
     path: '',
@@ -21,6 +23,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
+  providers: [Camera],
   declarations: [AddLanchePage]
 })
 export class AddLanchePageModule {}
