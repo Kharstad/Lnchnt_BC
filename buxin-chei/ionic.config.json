@@ -1,5 +1,7 @@
 {
   "name": "Buxin Chei",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
