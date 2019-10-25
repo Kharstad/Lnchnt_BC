@@ -1,9 +1,51 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>list_usuario</ion-title>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>
+      Usuarios
+    </ion-title>
+    <ion-icon name="contact" slot="end" size="large" routerLink="/login" style=margin-right:20px;></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="tertiary" routerLink="../cadastro-cliente">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
-</ion-content>
+  <ion-list *ngIf="usuario">
+
+    <ion-item-sliding *ngFor="let p of players">
+      <ion-item-options side="start">
+        <ion-item-option (click)="editar(a)" expandable>
+          Editar
+        </ion-item-option>
+      </ion-item-options>
+
+      <ion-item routerLink="/perfilPlayer/{{a.key}}">
+        <ion-avatar slot="start">
+          <img src="{{a.foto}}">
+        </ion-avatar>
+          
+          <ion-label>{{ a.nome }}</ion-label>
+          <ion-text>{{ a.email }}</ion-text>
+      </ion-item>
+    
+
+      <ion-item-options side="end">
+        <ion-item-option (click)="apagar(a)" color="danger" expandable>
+          Deletar
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-content>
