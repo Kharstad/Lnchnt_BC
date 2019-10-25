@@ -3,18 +3,13 @@
       <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
       </ion-buttons>
-    <ion-title>cadastro de Cliente</ion-title>
+    <ion-title>cadastro de Usuário</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
-    <!-- <ion-item>
-      <img src="assets/blank.png" alt="" (click)="tirarFoto()" *ngIf="!preview">
-      <img [src]="preview" alt="" (click)="tirarFoto()" *ngIf="preview">
-      </ion-item> -->
-      
+<ion-content> 
     <form #fc="ngForm" (ngSubmit)="onsubmit(fc)">
       <ion-item>
-        <ion-label position="floating">Nome</ion-label>
+        <ion-label position="floating">Nome </ion-label>
         <ion-input type="text" [(ngModel)]=usuario.nome name="nome" required></ion-input>
       </ion-item>
       <ion-item>
@@ -44,7 +39,7 @@
         <ion-button size="medium" slot="end" color="danger" type="reset">Cancelar</ion-button>
       </ion-item>
     </form>
-    <ion-content padding>
+    <ion-content>
       <div class="map" id="map_canvas"></div>
     </ion-content>
     

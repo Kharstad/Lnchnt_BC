@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'list',
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
   },
+  {
+    path: 'cadastro-cliente',
+    loadChildren: () => import('./cadastro-cliente/cadastro-cliente.module').then(m => m.CadastroClientePageModule)
+  },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'cadastro-cliente', loadChildren: './cadastro-cliente/cadastro-cliente.module#CadastroClientePageModule' },
   { path: 'add-lanche', loadChildren: './add-lanche/add-lanche.module#AddLanchePageModule' },
