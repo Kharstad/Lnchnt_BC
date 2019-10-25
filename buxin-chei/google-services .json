@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1027209615855",
+    "firebase_url": "https://buxin-chei-lanchonete.firebaseio.com",
+    "project_id": "buxin-chei-lanchonete",
+    "storage_bucket": "buxin-chei-lanchonete.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1027209615855:android:15f1bdd53a4471753b3e1a",
+        "android_client_info": {
+          "package_name": "buxin.chei"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1027209615855-cek72tm5ddaopft3fpkdb7ve47503ed9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2ZwyMw-GocwMD2FdWNvSp9bT8lU6cONA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1027209615855-cek72tm5ddaopft3fpkdb7ve47503ed9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
