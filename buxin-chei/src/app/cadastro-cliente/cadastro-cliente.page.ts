@@ -86,7 +86,7 @@ export class CadastroClientePage implements OnInit {
         this.posLng = resp.coords.longitude;
       }).catch(
         error => {
-          console.log('Não foi possivel pegar sua localização!', error);
+          console.log('Não foi possivel pegar sua localização!, tu tá no acre?', error);
         });
   }
 
