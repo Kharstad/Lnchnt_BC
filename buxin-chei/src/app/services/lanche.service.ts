@@ -19,10 +19,10 @@ export class LancheService {
       .add({
         nome: lanche.nome,
         categoria: lanche.categoria,
-        descicao: lanche.descicao,
+        descicao: lanche.descricao,
         quant: lanche.quant,
         valor: lanche.valor,
-        foto: lanche.foto,
+        fotos: lanche.fotos,
         ativo: lanche.ativo,
       });
   }

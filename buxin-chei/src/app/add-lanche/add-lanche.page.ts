@@ -32,6 +32,11 @@ export class AddLanchePage implements OnInit {
   } 
 
   onsubmit(form) {
+    if (this.preview) {
+      this.presentAlert("Erro", "Deve inserir uma foto do perfil!");
+    } else {
+      this.lanche.fotos = this.preview;
+    }
     if (!this.id) {
       this.lancheService.save(this.lanche).then(  
         res => {
@@ -51,6 +56,7 @@ export class AddLanchePage implements OnInit {
         res => {
           form.reset();
           this.lanche = new Lanche;
+          this.preview = null
           this.presentAlert('Aviso', 'Atualizado!')
           this.router.navigate(['/tabs/perfilLanche', this.id]);
         },
@@ -78,7 +84,9 @@ export class AddLanchePage implements OnInit {
       quality: 50,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      saveToPhotoAlbum:false,
+      allowEdit:true
     }
 
     this.camera.getPicture(options).then((imageData) => {
