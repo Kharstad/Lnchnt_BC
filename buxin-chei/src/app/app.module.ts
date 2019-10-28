@@ -12,6 +12,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Device } from '@ionic-native/device/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 //Firebase ------------------------
 import { AngularFireModule } from '@angular/fire';
@@ -36,7 +37,8 @@ import { FirebaseConfig } from '@ionic-native/firebase-config/ngx';
     Geolocation,
     GooglePlus, 
     Device,
-    AndroidPermissions
+    AndroidPermissions,
+    Camera,
   ],
   bootstrap: [AppComponent]
 })
