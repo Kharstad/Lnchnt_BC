@@ -76,8 +76,10 @@ export class CadastroClientePage implements OnInit {
           this.presentAlert('Erro', 'Não foi possivel atualizar!')
         }
       )
+
     }
   }
+  
 
   localAtual() {
     this.geolocation.getCurrentPosition().then(

@@ -6,7 +6,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' 
 })
 export class PlayerService {
 
@@ -14,9 +14,6 @@ export class PlayerService {
     protected fire: AngularFirestore
   ) { }
 
-
-  getAll() {
-    return this.fire.collection("lanches").snapshotChanges()
       .pipe(
         map(dados =>
           dados.map(d => ({ key: d.payload.doc.id, ...d.payload.doc.data() }))
@@ -44,7 +41,5 @@ export class PlayerService {
       .update(lanche);
   }
 
-  remove(lanche) {
-    return this.fire.collection("lanches").doc(lanche.id).delete();
   }
 }

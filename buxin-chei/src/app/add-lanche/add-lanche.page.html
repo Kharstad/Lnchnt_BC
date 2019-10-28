@@ -1,18 +1,18 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>Adicionar lanche</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- <ion-item>
-    <img src="assets/blank.png" alt="" (click)="tirarFoto()" *ngIf="!preview">
+  <ion-item>
+    <img src="assets/blnkpic.png" alt="" (click)="tirarFoto()" *ngIf="!preview">
     <img [src]="preview" alt="" (click)="tirarFoto()" *ngIf="preview">
-    </ion-item> -->
-    
+  </ion-item>
+
   <form #fc="ngForm" (ngSubmit)="onsubmit(fc)">
     <ion-item>
       <ion-label position="floating">Nome do lanche</ion-label>
@@ -34,13 +34,13 @@
       <ion-label position="floating">Quantidade</ion-label>
       <ion-input type="number" [(ngModel)]=lanche.quant name="quant" required></ion-input>
     </ion-item>
-    <ion-item lines="none">
-      <ion-button size="medium" slot="end" color="primary" type="sumbit" [disabled]="preco.invalid">Cadastrar salgado</ion-button>
+    <ion-item lines="none" *ngIf="id">
+      <ion-button size="medium" slot="end" color="primary" type="sumbit" [disabled]="valor.invalid">Cadastrar Salgado</ion-button>
       <ion-button size="medium" slot="end" color="danger" type="reset">Cancelar</ion-button>
     </ion-item>
   </form>
-  <ion-content padding>
+  <ion-content>
     <div class="map" id="map_canvas"></div>
   </ion-content>
-  
+
 </ion-content>

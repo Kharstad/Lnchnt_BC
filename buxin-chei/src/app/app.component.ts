@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -24,6 +23,11 @@ export class AppComponent {
     {
       title: 'Cadastro de Usuário',
       url: '/cadastro-cliente',
+      icon: 'list'
+    },
+    {
+      title: 'Cadastro de Lanche',
+      url: '/add-lanche',
       icon: 'list'
     }
   ];
