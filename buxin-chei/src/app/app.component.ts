@@ -29,6 +29,11 @@ export class AppComponent {
       title: 'Cadastro de Lanche',
       url: '/add-lanche',
       icon: 'list'
+    },
+    {
+      title: 'Perfil Lanche',
+      url: '/perfil-lanche',
+      icon: 'home'
     }
   ];
 
