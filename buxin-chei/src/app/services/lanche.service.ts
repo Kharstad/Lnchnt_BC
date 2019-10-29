@@ -5,7 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root' 
+  providedIn: 'root'
 })
 export class LancheService {
 

@@ -14,12 +14,12 @@
   <ion-list *ngIf="lanche">
     <ion-item-sliding *ngFor="let l of lanche">
       <ion-item-options side="start">
-        <ion-item-option color="" (click)="editar(l)">
+        <ion-item-option color="" (click)='editar(l)'>
           <ion-icon slot="icon-only" name="create"></ion-icon>Atualizar
         </ion-item-option>
       </ion-item-options>
 
-      <ion-item routerLink="/tabs/perfilLanche/{{l.key}}">
+      <ion-item routerLink="./perfil-lanche/{{l.key}}">
         <ion-avatar slot="start">
           <img src="assets/blnkpic.png" *ngIf="!l.fotos">
           <img [src]="l.fotos[0]" *ngIf="l.fotos">
@@ -29,7 +29,7 @@
       </ion-item>
 
       <ion-item-options side="end">
-        <ion-item-option color="danger" (click)="apagar(l)">
+        <ion-item-option color="danger" (click)='apagar(l)'>
           <ion-icon slot="icon-only" name="trash"></ion-icon>Delete
         </ion-item-option>
       </ion-item-options>

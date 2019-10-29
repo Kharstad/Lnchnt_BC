@@ -19,11 +19,16 @@ const routes: Routes = [
     path: 'cadastro-cliente',
     loadChildren: () => import('./cadastro-cliente/cadastro-cliente.module').then(m => m.CadastroClientePageModule)
   },
+  {
+    path: 'perfil-lanche',
+    loadChildren: () => import('./perfil-lanche/perfil-lanche.module').then(m => m.PerfilLanchePageModule)
+  },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'cadastro-cliente', loadChildren: './cadastro-cliente/cadastro-cliente.module#CadastroClientePageModule' },
   { path: 'add-lanche', loadChildren: './add-lanche/add-lanche.module#AddLanchePageModule' },
   { path: 'sobre-nos', loadChildren: './sobre-nos/sobre-nos.module#SobreNosPageModule' },
-  { path: 'list-usuario', loadChildren: './list-usuario/list-usuario.module#ListUsuarioPageModule' },  { path: 'perfil-lanche', loadChildren: './perfil-lanche/perfil-lanche.module#PerfilLanchePageModule' }
+  { path: 'list-usuario', loadChildren: './list-usuario/list-usuario.module#ListUsuarioPageModule' },
+  { path: 'perfil-lanche', loadChildren: './perfil-lanche/perfil-lanche.module#PerfilLanchePageModule' }
 
 
 ];
