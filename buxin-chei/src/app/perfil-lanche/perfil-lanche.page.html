@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil do Game</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let fotos of game.fotos">
+      <img src="{{foto}}">
+    </ion-slide>
+  </ion-slides>
+
+  <ion-item>
+    <ion-text>
+      <h2>{{lanche.nome}}</h2>
+      <p>Desrição: {{lanche.descricao}}</p>
+      <p>Categoria: {{lanche.categoria}}</p>
+      <p>Valor: {{lanche.valor | currency : "BRL"}}</p>
+    </ion-text>
+  </ion-item>
+</ion-content>

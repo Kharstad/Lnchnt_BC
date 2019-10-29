@@ -8,10 +8,17 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <img src="assets/blnkpic.png" alt="" (click)="tirarFoto()" *ngIf="!preview">
-    <img [src]="preview" alt="" (click)="tirarFoto()" *ngIf="preview">
+  <ion-item lines="none" class="foto">
+    <img src="assets/blnkpic.png" alt="foto lanche" (click)="tirarFoto()" *ngIf="!preview">
+
+    <img [src]="preview[preview.length - 1]" alt="foto lanche" (click)="tirarFoto()" *ngIf="preview">
   </ion-item>
+
+  <ion-slides pager="true" [options]="slideOpts" *ngIf="preview">
+    <ion-slide *ngFor="let fotos of preview; let i = index" (click)="removerFoto(i)">
+      <img src="{{fotos}}">
+    </ion-slide>
+  </ion-slides>
 
   <form #fc="ngForm" (ngSubmit)="onsubmit(fc)">
 

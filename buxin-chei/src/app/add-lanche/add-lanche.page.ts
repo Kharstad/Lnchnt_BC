@@ -22,49 +22,65 @@ export class AddLanchePage implements OnInit {
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected platform: Platform,
-    private camera: Camera,
-    
+    private camera: Camera,   
   ) { }
 
+  slideOpts = {
+    initialSlide: 1,
+    slidesPerView: 3,
+    speed: 400
+  };
+
   async ngOnInit() {
+    await this.platform.ready();
     // Pega Id para autilaização dos dados do Lanche
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    if (this.id) {
+      this.lancheService.get(this.id).subscribe(
+        res => {
+          this.lanche = res
+          this.preview = this.lanche.fotos
+        },
+        //erro => this.id = null
+      )
+    }
   } 
 
   onsubmit(form) {
-    if (this.preview) {
-      this.presentAlert("Erro", "Deve inserir uma foto do perfil!");
+    if (!this.preview) {
+      this.presentAlert("Erro", "Deve inserir uma foto do Lanche!");
     } else {
       this.lanche.fotos = this.preview;
-    }
-    if (!this.id) {
-      this.lancheService.save(this.lanche).then(  
-        res => {
-          form.reset();
-          this.lanche = new Lanche;
-          console.log('Cadastrado!');
-          this.presentAlert('Aviso', 'Cadastrado!')
-          this.router.navigate(['/']);
-        },
-        erro => {
-          console.log('Erro: ' + erro);
-          this.presentAlert('Erro', 'Não foi possivel cadastrar!')
-        }
-      )
-    } else {
-      this.lancheService.update(this.lanche, this.id).then(
-        res => {
-          form.reset();
-          this.lanche = new Lanche;
-          this.preview = null
-          this.presentAlert('Aviso', 'Atualizado!')
-          this.router.navigate(['/tabs/perfilLanche', this.id]);
-        },
-        erro => {
-          console.log('Erro: ' + erro);
-          this.presentAlert('Erro', 'Não foi possivel atualizar!')
-        }
-      )
+      if (!this.id) {
+        this.lancheService.save(this.lanche).then(
+          res => {
+            form.reset();
+            this.lanche = new Lanche;
+            //console.log("Cadastrado!");
+            this.preview = null
+            this.presentAlert("Aviso", "Cadastrado!")
+            this.router.navigate(['/perfil-lanche', res.id]);
+          },
+          erro => {
+            console.log("Erro: " + erro);
+            this.presentAlert("Erro", "Não foi possivel cadastrar!")
+          }
+        )
+      } else {
+        this.lancheService.update(this.lanche, this.id).then(
+          res => {
+            form.reset();
+            this.lanche = new Lanche;
+            this.preview = null
+            this.presentAlert("Aviso", "Atualizado!")
+            this.router.navigate(['/tabs/perfilLanche', this.id]);
+          },
+          erro => {
+            console.log("Erro: " + erro);
+            this.presentAlert("Erro", "Não foi possivel atualizar!")
+          }
+        )
+      }
     }
   }
 
@@ -84,9 +100,7 @@ export class AddLanchePage implements OnInit {
       quality: 50,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.PictureSourceType.PHOTOLIBRARY,
-      saveToPhotoAlbum:false,
-      allowEdit:true
+      mediaType: this.camera.MediaType.PICTURE
     }
 
     this.camera.getPicture(options).then((imageData) => {

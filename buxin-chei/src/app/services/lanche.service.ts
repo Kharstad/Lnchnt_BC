@@ -27,7 +27,7 @@ export class LancheService {
       });
   }
 
-  gelAll() {
+  getAll() {
     return this.fire.collection('lanche').snapshotChanges()
       .pipe(
         map(dados =>

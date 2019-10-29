@@ -23,7 +23,8 @@ const routes: Routes = [
   { path: 'cadastro-cliente', loadChildren: './cadastro-cliente/cadastro-cliente.module#CadastroClientePageModule' },
   { path: 'add-lanche', loadChildren: './add-lanche/add-lanche.module#AddLanchePageModule' },
   { path: 'sobre-nos', loadChildren: './sobre-nos/sobre-nos.module#SobreNosPageModule' },
-  { path: 'list-usuario', loadChildren: './list-usuario/list-usuario.module#ListUsuarioPageModule' }
+  { path: 'list-usuario', loadChildren: './list-usuario/list-usuario.module#ListUsuarioPageModule' },  { path: 'perfil-lanche', loadChildren: './perfil-lanche/perfil-lanche.module#PerfilLanchePageModule' }
+
 
 ];
 
