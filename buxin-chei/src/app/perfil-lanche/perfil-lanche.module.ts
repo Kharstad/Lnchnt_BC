@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AddLanchePage } from './add-lanche.page';
-import { Camera } from '@ionic-native/camera/ngx';
+import { PerfilLanchePage } from './perfil-lanche.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: AddLanchePage
+    component: PerfilLanchePage
   }
 ];
 
@@ -20,17 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: AddLanchePage
-      }
-    ])
+    RouterModule.forChild(routes)
   ],
-  declarations: [AddLanchePage],
-  providers: [
-    Camera // <- declarar o service/provider aqui
-  ]
+  declarations: [PerfilLanchePage]
 })
-
-export class AddLanchePageModule {}
+export class PerfilLanchePageModule {}

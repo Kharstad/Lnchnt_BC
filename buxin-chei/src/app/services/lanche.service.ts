@@ -5,7 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' 
 })
 export class LancheService {
 
@@ -15,17 +15,16 @@ export class LancheService {
   ) { }
 
   save(lanche) {
-        res => {
-          return this.fire.collection('lanche').doc(res.user.uid).set({
-            nome: lanche.nome,
-            categoria: lanche.categoria,
-            descicao: lanche.descicao,
-            quant: lanche.quant,
-            valor: lanche.valor,
-            foto: lanche.foto,
-            ativo: lanche.ativo,
-          });
-        }
+    return this.fire.collection('lanche')
+      .add({
+        nome: lanche.nome,
+        categoria: lanche.categoria,
+        descicao: lanche.descricao,
+        quant: lanche.quant,
+        valor: lanche.valor,
+        fotos: lanche.fotos,
+        ativo: lanche.ativo,
+      });
   }
 
   getAll() {
@@ -47,7 +46,7 @@ export class LancheService {
   }
 
   remove(lanche: any) {
-    return this.fire.collection('lanches').doc(lanche.key).delete();
+    return this.fire.collection('lanche').doc(lanche.key).delete();
   }
 }
 
