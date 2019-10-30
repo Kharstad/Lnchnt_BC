@@ -12,6 +12,7 @@
 <ion-content>
 
   <ion-list *ngIf="lanche">
+    <h2></h2>
     <ion-item-sliding *ngFor="let l of lanche">
       <ion-item-options side="start">
         <ion-item-option color="" (click)='editar(l)'>
