@@ -14,7 +14,7 @@ export class AddLanchePage implements OnInit {
 
   protected lanche: Lanche = new Lanche;
   protected id: any = null;
-  protected preview: string[] = null;
+  protected preview: any = null;
 
   constructor(
     protected lancheService: LancheService,
