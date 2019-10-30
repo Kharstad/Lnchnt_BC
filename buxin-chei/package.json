@@ -23,6 +23,7 @@
     "@angular/router": "~8.1.2",
     "@ionic-native/android-permissions": "^5.15.1",
     "@ionic-native/camera": "^5.15.1",
+    "@ionic-native/core": "^5.15.1",
     "@ionic-native/device": "^5.15.1",
     "@ionic-native/firebase-config": "^5.15.1",
     "@ionic-native/geolocation": "^5.15.1",
