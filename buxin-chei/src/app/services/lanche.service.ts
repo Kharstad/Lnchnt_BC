@@ -1,4 +1,4 @@
-
+  
 import { Injectable } from '@angular/core';
 import { Lanche } from '../model/lanche';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -13,7 +13,6 @@ export class LancheService {
   constructor(
     protected fire: AngularFirestore
   ) { }
-
 
   getAll() {
     return this.fire.collection('lanche').snapshotChanges()
@@ -43,7 +42,10 @@ export class LancheService {
     return this.fire.collection("lanches").doc<Lanche>(id)
       .update(lanche);
   }
-  
+  remove(id: string) {
+    return this.fire.collection("lanches").doc<Lanche>(id)
+      .delete();
+  }
 
-}
+  }
 
