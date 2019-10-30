@@ -19,13 +19,13 @@
         </ion-item-option>
       </ion-item-options>
 
-      <ion-item routerLink="./perfil-lanche/{{l.key}}">
+      <ion-item routerLink="../perfil-lanche/{{l.key}}">
         <ion-avatar slot="start">
           <img src="assets/blnkpic.png" *ngIf="!l.fotos">
           <img [src]="l.fotos[0]" *ngIf="l.fotos">
         </ion-avatar>
         <ion-label>{{ l.nome }}</ion-label>
-        <ion-text>R${{ l.valor }},00</ion-text>
+        <ion-text>R$ {{ l.valor }},00</ion-text>
       </ion-item>
 
       <ion-item-options side="end">
