@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Lanche } from '../model/lanche';
+import { LancheService } from '../services/lanche.service';
+import { AlertController, Platform } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+
 @Component({
   selector: 'app-add-lanche',
   templateUrl: './add-lanche.page.html',
@@ -8,6 +13,8 @@ import { Lanche } from '../model/lanche';
 export class AddLanchePage implements OnInit {
 
   protected lanche: Lanche = new Lanche;
+  protected id: any = null;
+  protected preview: string[] = null;
 
   constructor(
     protected lancheService: LancheService,
@@ -15,43 +22,65 @@ export class AddLanchePage implements OnInit {
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected platform: Platform,
-    private camera: Camera,
-    
+    private camera: Camera,   
   ) { }
 
+  slideOpts = {
+    initialSlide: 1,
+    slidesPerView: 3,
+    speed: 400
+  };
+
   async ngOnInit() {
+    await this.platform.ready();
     // Pega Id para autilaização dos dados do Lanche
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    if (this.id) {
+      this.lancheService.get(this.id).subscribe(
+        res => {
+          this.lanche = res
+          this.preview = this.lanche.fotos
+        },
+        //erro => this.id = null
+      )
+    }
   } 
 
   onsubmit(form) {
-    if (!this.id) {
-      this.lancheService.save(this.lanche).then(  
-        res => {
-          form.reset();
-          this.lanche = new Lanche;
-          console.log('Cadastrado!');
-          this.presentAlert('Aviso', 'Cadastrado!')
-          this.router.navigate(['/']);
-        },
-        erro => {
-          console.log('Erro: ' + erro);
-          this.presentAlert('Erro', 'Não foi possivel cadastrar!')
-        }
-      )
+    if (!this.preview) {
+      this.presentAlert("Erro", "Deve inserir uma foto do Lanche!");
     } else {
-      this.lancheService.update(this.lanche, this.id).then(
-        res => {
-          form.reset();
-          this.lanche = new Lanche;
-          this.presentAlert('Aviso', 'Atualizado!')
-          this.router.navigate(['/tabs/perfilLanche', this.id]);
-        },
-        erro => {
-          console.log('Erro: ' + erro);
-          this.presentAlert('Erro', 'Não foi possivel atualizar!')
-        }
-      )
+      this.lanche.fotos = this.preview;
+      if (!this.id) {
+        this.lancheService.save(this.lanche).then(
+          res => {
+            form.reset();
+            this.lanche = new Lanche;
+            //console.log("Cadastrado!");
+            this.preview = null
+            this.presentAlert("Aviso", "Cadastrado!")
+            this.router.navigate(['/perfil-lanche', res.id]);
+          },
+          erro => {
+            console.log("Erro: " + erro);
+            this.presentAlert("Erro", "Não foi possivel cadastrar!")
+          }
+        )
+      } else {
+        this.lancheService.update(this.lanche, this.id).then(
+          res => {
+            form.reset();
+            this.lanche = new Lanche;
+            this.preview = null
+            this.presentAlert("Aviso", "Atualizado!")
+            this.router.navigate(['/tabs/perfilLanche', this.id]);
+          },
+          erro => {
+            console.log("Erro: " + erro);
+            this.presentAlert("Erro", "Não foi possivel atualizar!")
+          }
+        )
+      }
     }
   }
 
@@ -89,3 +118,27 @@ export class AddLanchePage implements OnInit {
       // Handle error
     });
   }
+
+  async removerFoto(index) {
+    const alert = await this.alertController.create({
+      header: 'Apagar foto!',
+      message: 'Apagar foto do Lanche',
+      buttons: [
+        {
+          text: 'Não',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Sim',
+          handler: () => {
+            this.preview.splice(index, 1);
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+}

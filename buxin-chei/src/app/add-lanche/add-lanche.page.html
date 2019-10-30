@@ -8,37 +8,52 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <img src="assets/blnkpic.png" alt="" (click)="tirarFoto()" *ngIf="!preview">
-    <img [src]="preview" alt="" (click)="tirarFoto()" *ngIf="preview">
+  <ion-item lines="none" class="foto">
+    <img src="assets/blnkpic.png" alt="foto lanche" (click)="tirarFoto()" *ngIf="!preview">
+
+    <img [src]="preview[preview.length - 1]" alt="foto lanche" (click)="tirarFoto()" *ngIf="preview">
   </ion-item>
 
+  <ion-slides pager="true" [options]="slideOpts" *ngIf="preview">
+    <ion-slide *ngFor="let fotos of preview; let i = index" (click)="removerFoto(i)">
+      <img src="{{fotos}}">
+    </ion-slide>
+  </ion-slides>
+
   <form #fc="ngForm" (ngSubmit)="onsubmit(fc)">
+
     <ion-item>
       <ion-label position="floating">Nome do lanche</ion-label>
       <ion-input type="text" [(ngModel)]=lanche.nome name="nome" required></ion-input>
     </ion-item>
+
     <ion-item>
       <ion-label position="floating">Preço</ion-label>
       <ion-input type="text" [(ngModel)]=lanche.valor name="valor" required></ion-input>
     </ion-item>
+
     <ion-item>
       <ion-label position="floating">Descrição</ion-label>
       <ion-input type="text" [(ngModel)]=lanche.descricao name="descricao" required></ion-input>
     </ion-item>
+
     <ion-item>
       <ion-label position="floating">Categoria</ion-label>
       <ion-input type="text" [(ngModel)]=lanche.categoria name="categoria" required></ion-input>
     </ion-item>
+
     <ion-item>
       <ion-label position="floating">Quantidade</ion-label>
       <ion-input type="number" [(ngModel)]=lanche.quant name="quant" required></ion-input>
     </ion-item>
-    <ion-item lines="none" *ngIf="id">
-      <ion-button size="medium" slot="end" color="primary" type="sumbit" [disabled]="valor.invalid">Cadastrar Salgado</ion-button>
-      <ion-button size="medium" slot="end" color="danger" type="reset">Cancelar</ion-button>
+
+    <ion-item lines="none" *ngIf="!id">
+      <ion-button type="submit" color="primary" [disabled]="fc.invalid">Salvar</ion-button>
+      <ion-button type="reset" color="danger" routerLink="/">Cancelar</ion-button>
     </ion-item>
+
   </form>
+
   <ion-content>
     <div class="map" id="map_canvas"></div>
   </ion-content>
