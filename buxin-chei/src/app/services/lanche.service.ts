@@ -21,7 +21,7 @@ export class PlayerService {
       .add({
         nome: lanche.nome,
         categoria: lanche.categoria,
-        descicao: lanche.descricao,
+        descricao: lanche.descricao,
         quant: lanche.quant,
         valor: lanche.valor,
         fotos: lanche.fotos,

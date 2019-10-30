@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./cadastro-cliente/cadastro-cliente.module').then(m => m.CadastroClientePageModule)
   },
   {
-    path: 'perfil-lanche',
+    path: 'perfil-lanche/:id',
     loadChildren: () => import('./perfil-lanche/perfil-lanche.module').then(m => m.PerfilLanchePageModule)
   },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
