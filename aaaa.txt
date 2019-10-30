@@ -1,0 +1,32 @@
+instalação{
+	npm i				instala as dependencias do angular (pacotes e modulos)
+	npm i -g @pacote/..		Instala um pacote especifico
+}
+
+server JSON {
+	npm i -g json			Instala o servidor
+	npm s -o			abre o servidor no caminho do hd
+	json-server --watch db.json	Inicia o servidor especificado no fim do cmdlet
+}
+server IONIC {
+	ionic s 			Inicia a aplicação. 
+}
+
+
+conceitos 
+
+construtor			é o metodo que é executado quando a pagina é construida
+ngOnInit(){}			é executado toda vez que o site for construido ou chamada o OnInit
+
+
+
+https://console.firebase.google.com/project/applojabruno/settings/general/web:NWI3NDNhM2UtOGQ4OC00OGQ5LTkyZGQtYzdlNmE3Y2MxNzFm
+
+segunda-feira : adicionar , atualiazar e excluir. 
+
+
+apagar(usuarios) {
+    if (confirm("Apagar usuário?")) {
+      this.usuarioService.remove(usuarios.key)
+    }
+  }

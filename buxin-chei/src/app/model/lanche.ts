@@ -6,5 +6,5 @@ export class Lanche {
     quant: number; 
     valor: number; 
     ativo: boolean = true;
-    fotos: string[] = [];
+    fotos: string = null;
 }
