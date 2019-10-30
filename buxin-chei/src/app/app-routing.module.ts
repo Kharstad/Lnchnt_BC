@@ -14,6 +14,25 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
+  },  { path: 'cadastro-cliente', loadChildren: './pages/cadastro-cliente/cadastro-cliente.module#CadastroClientePageModule' },
+  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
+  { path: 'add-lanche', loadChildren: './pages/add-lanche/add-lanche.module#AddLanchePageModule' },
+  { path: 'sobre-nos', loadChildren: './pages/sobre-nos/sobre-nos.module#SobreNosPageModule' }
+
+<<<<<<< HEAD
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+  },
+  {
+    path: 'list',
+    loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
   },
   {
     path: 'cadastro-cliente',
@@ -40,3 +59,14 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+=======
+];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+  ],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
+>>>>>>> e3411243728b1755e05963c0082a9bfe33d54e54
