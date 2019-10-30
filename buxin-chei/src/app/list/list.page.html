@@ -19,7 +19,7 @@
         </ion-item-option>
       </ion-item-options>
 
-      <ion-item routerLink="./perfil-lanche/{{l.key}}">
+      <ion-item routerLink="../perfil-lanche/{{l.key}}">
         <ion-avatar slot="start">
           <img src="assets/blnkpic.png" *ngIf="!l.fotos">
           <img [src]="l.fotos[0]" *ngIf="l.fotos">
