@@ -45,10 +45,9 @@
         Senhas diferentes.
       </ion-text>
 
-      <ion-item lines="none">
-        <ion-button type="submit" color="primary" [disabled]="fc.invalid || (pws.value != conf.value)">Salvar</ion-button>
-        <ion-button type="reset" color="danger">Cancelar</ion-button>
-      </ion-item>
+        <br>
+        <ion-button type="submit" color="primary" expand="block" slot="end" [disabled]="fc.invalid || (pws.value != conf.value)">Salvar</ion-button>
+        <ion-button type="reset" slot="start" expand="block" color="danger">Cancelar</ion-button>
     </div>
 
     <ion-item lines="none" *ngIf="id">
