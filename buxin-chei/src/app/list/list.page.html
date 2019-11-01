@@ -4,12 +4,17 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
+<<<<<<< HEAD
       Lista
+=======
+      Lista 
+>>>>>>> e3411243728b1755e05963c0082a9bfe33d54e54
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<<<<<<< HEAD
 
   <ion-list *ngIf="lanche">
     <ion-item-sliding *ngFor="let l of lanche">
@@ -25,7 +30,7 @@
           <img [src]="l.fotos[0]" *ngIf="l.fotos">
         </ion-avatar>
         <ion-label>{{ l.nome }}</ion-label>
-        <ion-text>R${{ l.valor }},00</ion-text>
+        <ion-text>R$ {{ l.valor }},00</ion-text>
       </ion-item>
 
       <ion-item-options side="end">
@@ -34,6 +39,16 @@
         </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
+=======
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      <ion-icon [name]="item.icon" slot="start"></ion-icon>
+      Perfil
+      <div class="item-note" slot="end">
+        {{item.note}}
+      </div>
+    </ion-item>
+>>>>>>> e3411243728b1755e05963c0082a9bfe33d54e54
   </ion-list>
 
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">

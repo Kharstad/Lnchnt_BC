@@ -23,7 +23,7 @@
   <form #fc="ngForm" (ngSubmit)="onsubmit(fc)">
 
     <ion-item>
-      <ion-label position="floating">Nome do lanche</ion-label>
+      <ion-label position="floating">Nome</ion-label>
       <ion-input type="text" [(ngModel)]=lanche.nome name="nome" required></ion-input>
     </ion-item>
 
@@ -38,9 +38,14 @@
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Categoria</ion-label>
-      <ion-input type="text" [(ngModel)]=lanche.categoria name="categoria" required></ion-input>
-    </ion-item>
+        <ion-label>Categoria</ion-label>
+        <ion-select placeholder="" [(ngModel)]="lanche.categoria" name="categoria" required>
+          <ion-select-option value="Pratos">Pratos</ion-select-option>
+          <ion-select-option value="Lanches">Lanches</ion-select-option>
+          <ion-select-option value="Bebidas">Bebidas</ion-select-option>
+          <ion-select-option value="Sobremesas">Sobremesas</ion-select-option>
+        </ion-select>
+      </ion-item>
 
     <ion-item>
       <ion-label position="floating">Quantidade</ion-label>
