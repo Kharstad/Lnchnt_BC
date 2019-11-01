@@ -14,7 +14,7 @@ import { Device } from '@ionic-native/device/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
-//Firebase ------------------------
+// Firebase ------------------------
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -28,7 +28,7 @@ import { FirebaseConfig } from '@ionic-native/firebase-config/ngx';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFireAuthModule,    
+    AngularFireAuthModule,
   ],
   providers: [
     StatusBar,
