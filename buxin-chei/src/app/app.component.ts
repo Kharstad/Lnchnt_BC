@@ -22,7 +22,7 @@ export class AppComponent {
     },
     {
       title: 'Cadastro de Usuário',
-      url: '/cadastro-usuario',
+      url: '/cadastro-cliente',
       icon: 'list'
     },
     {
@@ -34,11 +34,6 @@ export class AppComponent {
       title: 'Perfil Lanche',
       url: '/perfil-lanche',
       icon: 'home'
-    },
-    {
-      title: 'Perfil Usuário',
-      url: '/perfil-usuario',
-      icon: 'list'
     }
   ];
 
