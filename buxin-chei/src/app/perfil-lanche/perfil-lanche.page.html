@@ -2,20 +2,21 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-      <ion-title>Detalhes</ion-title>
     </ion-buttons>
+    <ion-title>
+      Detalhes
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
   <ion-slides pager="true" [options]="slideOpts">
     <ion-slide *ngFor="let fotos of lanche.fotos">
-      <img src="{{fotos}}">
+      <img src="{{fotos}}" style="padding: 10%;">
     </ion-slide>
   </ion-slides>
 
-  <ion-item>
+  <ion-item lines="none">
     <ion-text>
       <h2>{{lanche.nome}}</h2>
       <p>Descrição: {{lanche.descricao}}</p>
@@ -23,4 +24,5 @@
       <p>Valor: {{lanche.valor | currency : "BRL"}}</p>
     </ion-text>
   </ion-item>
+
 </ion-content>
