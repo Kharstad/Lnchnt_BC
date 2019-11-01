@@ -14,7 +14,7 @@ import { Device } from '@ionic-native/device/ngx';
 export class LoginPage implements OnInit {
   protected email: string = "";
   protected pws: string = "";
-  protected 
+  
   constructor(
     public afAuth: AngularFireAuth,
     protected alertController: AlertController,
